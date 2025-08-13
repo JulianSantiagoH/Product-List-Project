@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "category": "t-shirt",
+        "products": [
+            {
+                "id": 1,
+                "name": "T-shirt básica",
+                "price": 12000,
+                "color": ["negro", "blanco", "gris"],
+                "talla": ["S", "M", "L", "XL"]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "category": "jeans",
+        "products": [
+            {
+                "id": 1,
+                "name": "Jeans skinny",
+                "price": 45000,
+                "color": ["azul oscuro", "azul claro", "negro"],
+                "talla": ["28", "30", "32", "34", "36"]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "category": "hoodie",
+        "products": [
+            {
+                "id": 1,
+                "name": "Hoodie oversize",
+                "price": 65000,
+                "color": ["negro", "gris", "verde oliva"],
+                "talla": ["S", "M", "L", "XL"]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "category": "zapatos",
+        "products": [
+            {
+                "id": 1,
+                "name": "Zapatillas deportivas",
+                "price": 85000,
+                "color": ["blanco", "negro", "azul"],
+                "talla": ["38", "39", "40", "41", "42", "43"]
+            }
+        ]
+    }
+]
