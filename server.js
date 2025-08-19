@@ -1,7 +1,8 @@
 import http from 'http';
 import fs from 'fs/promises';
+import { data } from './public/js/getJsonData.js'
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath} from 'url';
 import { category } from './public/js/writeJsonData.js'
 
 
@@ -10,21 +11,32 @@ const server = http.createServer(async(req,res)=>{
         const {method,url} = req
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
+        const parsedURL =  new URL (url, `http://${req.headers.host}`)
+        const pathname = parsedURL.pathname;
+        const queryCategory = parsedURL.searchParams.get("category")
+
     
-        if(url === '/' || url === '/index.html'){
+        if(pathname === "/"){
             
             const route = path.join(__dirname,'public','index.html')
             const html = await fs.readFile(route,'utf-8')
             res.writeHead(200,{'content-type':'text/html'})
             res.end(html)
-        }else if (url ==='/products'){
-            const htmlContent = await category()
+        }else if (pathname ==='/products'){
+            let jsonData = await data;
+            if (queryCategory){
+                jsonData = jsonData.filter(d => d.category === queryCategory)
+            }
+
+            const htmlContent = await category(jsonData)
+
 
             const fullPage = `
             <!DOCTYPE html>
             <html>
             <head>
             <meta charset="UTF-8">
+            <link rel="stylesheet" href="css/dataTable.css"></link>
             <title>Productos</title>
             </head>
             <body>

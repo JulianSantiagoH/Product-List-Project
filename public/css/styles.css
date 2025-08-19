@@ -1,4 +1,28 @@
 body{
-    background-color: #000000;
+    background-color: #535353;
     color: #FFFFFF;
+    height: 90vh;
+}
+
+.buttonContainer{
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.buttonSeeProducts{
+    background-color: #007BFF;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.buttonSeeProducts:hover{
+    background-color: #2452e9;
+    box-shadow: 1px 1px 10px rgb(144, 145, 230);
+    transition: 0.3s ease;
 }

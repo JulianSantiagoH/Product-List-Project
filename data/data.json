@@ -40,11 +40,11 @@
     },
     {
         "id": 4,
-        "category": "zapatos",
+        "category": "shoes",
         "products": [
             {
                 "id": 1,
-                "name": "Zapatillas deportivas",
+                "name": "Sports shoes",
                 "price": 85000,
                 "color": ["blanco", "negro", "azul"],
                 "size": ["38", "39", "40", "41", "42", "43"]
