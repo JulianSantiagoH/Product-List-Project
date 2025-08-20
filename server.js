@@ -3,7 +3,8 @@ import fs from 'fs/promises';
 import { data } from './public/js/getJsonData.js'
 import path from 'path';
 import { fileURLToPath} from 'url';
-import { category } from './public/js/writeJsonData.js'
+import { category } from './public/js/productMenuModule.js'
+import { categoryEdit } from './public/js/productEditModule.js';
 
 
 const server = http.createServer(async(req,res)=>{
@@ -36,7 +37,7 @@ const server = http.createServer(async(req,res)=>{
             <html>
             <head>
             <meta charset="UTF-8">
-            <link rel="stylesheet" href="css/dataTable.css"></link>
+            <link rel="stylesheet" href="css/productMenu.css"></link>
             <title>Productos</title>
             </head>
             <body>
@@ -47,6 +48,28 @@ const server = http.createServer(async(req,res)=>{
 
             res.writeHead(200,{'content-type':'text/html'})
             res.end(fullPage)
+        } else if (pathname === '/product-edit') {
+            let jsonData = await data;
+            const htmlContent = await categoryEdit(jsonData)
+
+            const fullPage = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="css/productMenu.css"></link>
+            <title>Productos</title>
+            </head>
+            <body>
+            ${htmlContent}
+            </body>
+            </html>
+            `;
+
+            res.writeHead(200,{'content-type':'text/html'})
+            res.end(fullPage)
+            
+        
         }else if (url.endsWith('.css')){
             const route = path.join(__dirname,'public',url)
             const css = await fs.readFile(route,'utf-8')

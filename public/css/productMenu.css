@@ -12,7 +12,7 @@ body{
     width: 100%;
 }
 
-.buttonFilterAll,.buttonFilterTshirt,.buttonFilterJeans,.buttonFilterhoodie,.buttonFilterShoes{
+.buttonFilterAll,.buttonFilterTshirt,.buttonFilterJeans,.buttonFilterhoodie,.buttonFilterShoes,.buttonEdit{
     background-color: #FFFFFF;
     border-radius: 5px;
     color: #000000;
@@ -63,4 +63,9 @@ body{
     left: 50%;
     position: absolute;
     text-decoration: none;
+}
+
+.buttonEditContainer{
+    display: flex;
+    margin-left: 30px;
 }

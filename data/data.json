@@ -5,7 +5,6 @@
         "products": [
             {
                 "id": 1,
-                "name": "T-shirt básica",
                 "price": 12000,
                 "color": ["negro", "blanco", "gris"],
                 "size": ["S", "M", "L", "XL"]
@@ -18,7 +17,6 @@
         "products": [
             {
                 "id": 1,
-                "name": "Jeans skinny",
                 "price": 45000,
                 "color": ["azul oscuro", "azul claro", "negro"],
                 "size": ["28", "30", "32", "34", "36"]
@@ -31,7 +29,6 @@
         "products": [
             {
                 "id": 1,
-                "name": "Hoodie oversize",
                 "price": 65000,
                 "color": ["negro", "gris", "verde oliva"],
                 "size": ["S", "M", "L", "XL"]
@@ -44,7 +41,6 @@
         "products": [
             {
                 "id": 1,
-                "name": "Sports shoes",
                 "price": 85000,
                 "color": ["blanco", "negro", "azul"],
                 "size": ["38", "39", "40", "41", "42", "43"]
