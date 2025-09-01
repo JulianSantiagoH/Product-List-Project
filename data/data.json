@@ -1,50 +1,103 @@
 [
-    {
-        "id": 1,
-        "category": "t-shirt",
-        "products": [
-            {
-                "id": 1,
-                "price": 12000,
-                "color": ["negro", "blanco", "gris"],
-                "size": ["S", "M", "L", "XL"]
-            }
+  {
+    "id": 1,
+    "category": "t-shirt",
+    "products": [
+      {
+        "price": 12000,
+        "color": [
+          "negro",
+          "blanco",
+          "gris"
+        ],
+        "size": [
+          "S",
+          "M",
+          "L",
+          "XL"
         ]
-    },
-    {
-        "id": 2,
-        "category": "jeans",
-        "products": [
-            {
-                "id": 1,
-                "price": 45000,
-                "color": ["azul oscuro", "azul claro", "negro"],
-                "size": ["28", "30", "32", "34", "36"]
-            }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "jeans",
+    "products": [
+      {
+        "price": 45000,
+        "color": [
+          "azul oscuro",
+          "azul claro",
+          "negro"
+        ],
+        "size": [
+          "28",
+          "30",
+          "32",
+          "34",
+          "36"
         ]
-    },
-    {
-        "id": 3,
-        "category": "hoodie",
-        "products": [
-            {
-                "id": 1,
-                "price": 65000,
-                "color": ["negro", "gris", "verde oliva"],
-                "size": ["S", "M", "L", "XL"]
-            }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "hoodie",
+    "products": [
+      {
+        "price": 65000,
+        "color": [
+          "negro",
+          "gris",
+          "verde oliva"
+        ],
+        "size": [
+          "S",
+          "M",
+          "L",
+          "XL"
         ]
-    },
-    {
-        "id": 4,
-        "category": "shoes",
-        "products": [
-            {
-                "id": 1,
-                "price": 85000,
-                "color": ["blanco", "negro", "azul"],
-                "size": ["38", "39", "40", "41", "42", "43"]
-            }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "shoes",
+    "products": [
+      {
+        "price": 85000,
+        "color": [
+          "blanco",
+          "negro",
+          "azul"
+        ],
+        "size": [
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43"
         ]
-    }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "testing",
+    "products": [
+      {
+        "price": 5000,
+        "color": [
+          "rojo",
+          "azul"
+        ],
+        "size": [
+          "s",
+          "m"
+        ]
+      }
+    ]
+  }
+  
 ]

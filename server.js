@@ -6,6 +6,7 @@ import { fileURLToPath} from 'url';
 import { category } from './public/js/productMenuModule.js'
 import { categoryEdit } from './public/js/productEditModule.js';
 import { categoryAdd } from './public/js/productAddModule.js';
+import querystring from "querystring";
 
 
 const server = http.createServer(async(req,res)=>{
@@ -13,6 +14,7 @@ const server = http.createServer(async(req,res)=>{
         const {method,url} = req
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
+        const filePath = path.join(__dirname, "data", "data.json");
         const parsedURL =  new URL (url, `http://${req.headers.host}`)
         const pathname = parsedURL.pathname;
         const queryCategory = parsedURL.searchParams.get("category")
@@ -50,7 +52,7 @@ const server = http.createServer(async(req,res)=>{
             res.writeHead(200,{'content-type':'text/html'})
             res.end(fullPage)
         } else if (pathname === '/product-edit') {
-            let jsonData = await data;
+            let jsonData = data;
             const htmlContent = await categoryEdit(jsonData)
 
             const fullPage = `
@@ -71,7 +73,50 @@ const server = http.createServer(async(req,res)=>{
             res.end(fullPage)
             
         
-        } else if (pathname === '/product-add'){
+        }else if (method === 'POST' && pathname === '/product-add'){
+            let body = ''
+            const MAX = 1e6;
+
+            req.on('data',chunk=>{
+                body+=chunk
+                if(body.length > MAX){
+                    req.socket.destroy();
+                }
+            })
+
+            req.on('error', () =>{
+                res.writeHead(400,{'Content-Type':'text/plain'})
+                res.end('Error al leer la peticion')
+            })
+
+            req.on('end', async ()=>{
+                let jsonDataGet = await fs.readFile(filePath,'utf-8')
+                let jsonData = JSON.parse(jsonDataGet)
+                const formData = querystring.parse(body)
+                const lastID = jsonData[jsonData.length-1]
+                const getLastID = lastID.id+1
+                const colorArray = formData.color.split(",").map(v => v.trim())
+                const sizeArray = formData.size.split(",").map(v => v.trim())
+                
+                const newData = {
+                    id:getLastID,
+                    category:formData.category,
+                    products:[
+                        {
+                            price:formData.price,
+                            color:colorArray,
+                            size:sizeArray,
+                        }
+                    ]
+                }
+
+                jsonData.push(newData)
+
+                await fs.writeFile(filePath,JSON.stringify(jsonData,null,2))
+                res.writeHead(302,{location:"/products"})
+                res.end()
+            })
+        } else if (method === 'GET' && pathname === '/product-add'){
             const htmlContent = await categoryAdd()
 
             const fullPage = `
